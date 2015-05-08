@@ -4,29 +4,30 @@
  */
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); // вывод атрибутов языка ?>>
+<html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); // кодировка ?>">
-	<?php /* RSS и всякое */ ?>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<?php ?>
 	<link rel="alternate" type="application/rdf+xml" title="RDF mapping" href="<?php bloginfo('rdf_url'); ?>">
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rss_url'); ?>">
 	<link rel="alternate" type="application/rss+xml" title="Comments RSS" href="<?php bloginfo('comments_rss2_url'); ?>">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); // абсолютный путь до темы ?>/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/styles/normalize.css">
 	 <!--[if lt IE 9]>
 	 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	 <![endif]-->
-	<title><?php typical_title(); // выводи тайтл, функция лежит в function.php ?></title>
-	<?php wp_head(); // необходимо для работы плагинов и функционала ?>
+	<title><?php typical_title(); ?></title>
+	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); // все классы для body ?>>
+<body <?php body_class(); ?>>
 	<header>
-		<?php $args = array( // опции для вывода верхнего меню, чтобы они работали, меню должно быть создано в админке
-			'theme_location' => 'top', // идентификатор меню, определен в register_nav_menus() в function.php
-			'container'=> 'nav', // обертка списка
-			'menu_class' => 'bottom-menu', // класс для ul
-	  		'menu_id' => 'bottom-nav', // id для ul
+		<?php $args = array(
+			'theme_location' => 'top',
+			'container'=> 'nav',
+			'menu_class' => 'bottom-menu',
+	  		'menu_id' => 'bottom-nav',
   			);
-			wp_nav_menu($args); // выводим верхнее меню
+			wp_nav_menu($args);
 		?>
 	</header>
